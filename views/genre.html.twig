@@ -1,0 +1,27 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Tous les livres{% endblock %}
+
+{% block content %}
+<h1 class="text-center">{{ currentGenre.label }}</h1>
+{% if books is empty %}
+<article>
+	<h2>Pas de livre pour ce genre.</h2>
+</article>
+{% endif %}
+{% for book in books %}
+<article>
+	<div class="row">
+		<div class="col-md-2">
+			<a href="{{ path('book', { 'id': book.id }) }}">
+				<img class="img-responsive imgList" src="{{ app.request.basepath }}/images/{{ book.image }}" alt="{{ book.title }}"></img>
+			</a>
+		</div>
+		<div class="col-md-10">
+			<h2><a href="{{ path('book', { 'id': book.id }) }}">{{ book.title }}</a></h2>
+			<p>{{ book.shortSummary }}</p>
+		</div>
+	</div>
+</article>
+{% endfor %}
+{% endblock %}

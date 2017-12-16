@@ -1,12 +1,17 @@
 {% extends "layout.html.twig" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block content %}
-{% for article in articles %}
-<article>
-    <h2><a class="articleTitle" href="{{ path('article', { 'id': article.id }) }}">{{ article.title }}</a></h2>
-    <p>{{ article.content }}</p>
-</article>
-{% endfor %}
+<div class="jumbotron">
+	<div class="row">
+		<div class="col-md-6">
+			<img class="img-responsive" id="imgHome" src="{{ app.request.basepath }}/images/LazyBouc.png" alt="LazyBouc"></img>
+		</div>
+		<div class="col-md-6">
+			<h2>LazyBouc <span class="glaphicon glaphicon-book"></span></h2>
+			<p>Achetez vos livres au Bouc.</p>
+		</div>
+	</div>
+</div>
 {% endblock %}
